@@ -1,18 +1,20 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import WithRouterSample from './WithRouterSample';
 
 const data = {
     ganada: {
-        name : '가나다',
+        name: '가나다',
         description: '나는 가나다입니다.'
     },
     mabasa: {
-        name : '마바사',
+        name: '마바사',
         description: '나는 마바사입니다.'
     }
 };
 
-const Profile = ({match}) => {
-    const {username} = match.params;
+const Profile = ({ match }) => {
+    const { username } = match.params;
     const profile = data[username];
 
     if (!profile) {
@@ -24,8 +26,9 @@ const Profile = ({match}) => {
                 {username}({profile.name})
             </h3>
             <p>{profile.description}</p>
+            <WithRouterSample />
         </div>
     )
 }
 
-export default Profile;
+export default withRouter(Profile);
