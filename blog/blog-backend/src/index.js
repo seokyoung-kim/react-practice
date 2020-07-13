@@ -23,7 +23,7 @@ router.get('/posts', ctx => {
 
 router.use('/api', api.routes());
 
-app.use(bodyParser);
+app.use(bodyParser());
 
 app.use(router.routes()).use(router.allowedMethods());
 // app.use(async (ctx, next) => {
